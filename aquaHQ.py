@@ -21,3 +21,6 @@ def aquaHQrun():
             counter += 1
         time.sleep(1)
         counter = 0
+
+if __name__ == '__main__':
+    aquaHQrun()

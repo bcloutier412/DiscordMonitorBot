@@ -21,14 +21,19 @@ aquaHQ.channelCollection = [
         #mrprada-alpha
     {
         'channel': '935774469740429352',
-        'directedChannel' : '955963737863487569',
+        'directedChannel': '955963737863487569',
         'chatChannel': False
     },
         #friazzin-alpha
     {
         'channel': '955831993667584070',
-        'directedChannel' : '955963760282042409',
+        'directedChannel': '955963760282042409',
         'chatChannel': False
+    },
+    {
+        'channel': '935772422517448725',
+        'directedChannel': '955977663682580520',
+        'chatChannel': True
     }
 ]
 

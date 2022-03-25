@@ -3,12 +3,15 @@ class Server():
     # activeToken is the user that is in the server we are scrapping from
     # proxyToken 
     def __init__(self):
+        self.serverName = ''
         self.activeToken = ''
         self.proxyToken = ''
         self.channelCollection = []
+        self.isLive = False
 
 # <--------------aquaHQ----------------->
 aquaHQ = Server()
+aquaHQ.serverName = 'aquaHQ'
 aquaHQ.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
 aquaHQ.proxyToken = 'ODg0NjU0MDYyODcwNjAxNzM5.YTbocQ.DWod2UZqL50hkuUcC0Hw0P9mSLo'
 aquaHQ.channelCollection = [
@@ -43,6 +46,7 @@ aquaHQ.channelCollection = [
 
 # <--------------Yuck Pass----------------->
 yuckPass = Server()
+yuckPass.serverName = 'yuckPass'
 yuckPass.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
 yuckPass.proxyToken = 'OTM2NTI2NjIyMjk3ODQ1Nzcy.YfOe0w._gnjg1tHO3bTrF-nHo8TjPTcfEI'
 yuckPass.channelCollection = [
@@ -57,3 +61,18 @@ yuckPass.channelCollection = [
         'chatChannel': False
     }
 ]
+
+test = Server()
+test.serverName = 'test'
+test.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
+test.proxyToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
+test.channelCollection = [
+    {
+        'channel': '956827879591784518',
+        'directedChannel': '956824883319414794',
+        'chatChannel': False
+    }
+]
+
+
+servercollection = [aquaHQ, yuckPass, test]

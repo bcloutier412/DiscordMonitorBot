@@ -4,7 +4,8 @@ from discord.ext import commands
 from aquaHQ import aquaHQrun
 from yuckPass import yuckPassrun
 from test import testrun
-from servercollection import aquaHQ, yuckPass, test, servercollection
+from oni import onirun
+from servercollection import aquaHQ, yuckPass, test, oni, servercollection
 
 
 # def ping_hosts_and_put_in_db():
@@ -56,21 +57,40 @@ async def run(ctx, arg=''):
         t = threading.Thread(target=aquaHQrun)
         t.start()
         await ctx.send('aquaHQ online')
-
     elif arg == 'yuckPass' and yuckPass.isLive == False:
         yuckPass.isLive = True
         t = threading.Thread(target=yuckPassrun)
         t.start()
         await ctx.send('yuckPass online')
-    
     elif arg == 'test' and test.isLive == False:
         test.isLive = True
         t = threading.Thread(target=testrun)
         t.start()
-        await ctx.send('test monitor is online')
-    
+        await ctx.send('Test monitor is online')
+    elif arg == 'oni' and oni.isLive == False:
+        oni.isLive = True
+        t = threading.Thread(target=onirun)
+        t.start()
+        await ctx.send('Alpha Oni online')
     else:
         await ctx.send('Invalid Entry')
+
+@bot.command()
+async def end(ctx, arg=''):
+    if arg == 'aquaHQ':
+        aquaHQ.isLive = False
+        await ctx.send('aquaHQ offline')
+    elif arg == 'yuckPass':
+        yuckPass.isLive = False
+        await ctx.send('yuckPass offline')
+    elif arg == 'test':
+        test.isLive = False
+        await ctx.send('test offline')
+    elif arg == 'oni':
+        oni.isLive = False
+        await ctx.send('Alpha Oni offline')
+    else:
+        await ctx.send('Invalid Arg')
 
 @bot.command()
 async def isonline(ctx, arg=''):
@@ -78,11 +98,16 @@ async def isonline(ctx, arg=''):
         await ctx.send(aquaHQ.isLive)
     elif arg == 'yuckPass':
         await ctx.send(yuckPass.isLive)
+    elif arg == 'test':
+        await ctx.send(test.isLive)
+    elif arg == 'oni':
+        await ctx.send(oni.isLive)
     else:
-        await ctx.send('invalid arg')
+        await ctx.send('Invalid Arg')
 
 @bot.command()
 async def status(ctx):
     for value in servercollection:
         await ctx.send(value.serverName + ': ' + str(value.isLive))
 bot.run('OTU2NjYzNTgzNzE3MDkzMzc3.YjzgZA.rdHO42UDG60_M7AIb8aPTS8dAFU')
+

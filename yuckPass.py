@@ -20,7 +20,7 @@ def yuckPassrun():
                     send_message(value['directedChannel'], json_obj[0]['content'], yuckPass.proxyToken)
                     recent_messages[counter] = payload_content_0
                 counter += 1
-            time.sleep(1)
+            time.sleep(3)
             counter = 0
     except:
         yuckPass.isLive = False

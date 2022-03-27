@@ -57,11 +57,18 @@ yuckPass.channelCollection = [
     },
     {
         'channel': '953375551219974165',
-        'directedChannel': '955977641037529199',
+        'directedChannel': '957184545315233803',
         'chatChannel': False
+    },
+    {
+        'channel': '928843551855489136',
+        'directedChannel': '955977821602328636',
+        'chatChannel': True
     }
 ]
 
+
+# <--------------------Test----------------------->
 test = Server()
 test.serverName = 'test'
 test.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
@@ -75,4 +82,37 @@ test.channelCollection = [
 ]
 
 
-servercollection = [aquaHQ, yuckPass, test]
+# <--------------------Alpha Oni----------------------->
+oni = Server()
+oni.serverName = 'Alpha Oni'
+oni.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
+oni.proxyToken = 'OTM2NTMxOTAxNzI3MDE0OTgz.YfOjeA.V5COqMTZ-ql2eFM6FjJ9NIVl4Kk'
+oni.channelCollection = [
+    {
+        'channel': '945551117411053578',
+        'directedChannel': '957413862209093644',
+        'chatChannel': False
+    },
+    {   
+        'channel': '943990390942470144',
+        'directedChannel': '957413902679965757',
+        'chatChannel': True 
+    },
+    {   
+        'channel': '952888290489540608',
+        'directedChannel': '957414111262675025',
+        'chatChannel': False
+    },
+    {   
+        'channel': '944012876396511272',
+        'directedChannel': '957414637454884864',
+        'chatChannel': False
+    },
+    {   
+        'channel': '944152306897805323',
+        'directedChannel': '957414953256644698',
+        'chatChannel': False
+    }
+]
+
+servercollection = [aquaHQ, yuckPass, oni, test]

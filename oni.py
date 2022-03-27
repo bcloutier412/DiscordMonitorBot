@@ -1,28 +1,28 @@
 import time
-from servercollection import test
+from servercollection import oni
 from requestsfunc import retrieve_messages, send_message
 
 recent_messages = []
-for value in test.channelCollection:
+for value in oni.channelCollection:
     recent_messages.append('')
-def testrun():
+def onirun():
     try:
-        while test.isLive:
+        while oni.isLive:
             counter = 0
-            for value in test.channelCollection:
-                json_obj = retrieve_messages(test.activeToken ,value['channel'])
+            for value in oni.channelCollection:
+                json_obj = retrieve_messages(oni.activeToken ,value['channel'])
                 try:
                     payload_content_0 = json_obj[0]['id']
                 except KeyError:
                     print('KeyError 0')
 
                 if payload_content_0 != recent_messages[counter]:
-                    send_message(value['directedChannel'], json_obj[0]['content'], test.proxyToken)
+                    send_message(value['directedChannel'], json_obj[0]['content'], oni.proxyToken)
                     recent_messages[counter] = payload_content_0
                 counter += 1
             time.sleep(3)
             counter = 0
     except:
-        test.isLive = False
+        oni.isLive = False
 if __name__ == '__main__':
-    testrun()
+    onirun() 

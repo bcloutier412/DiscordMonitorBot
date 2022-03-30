@@ -5,7 +5,7 @@ from aquaHQ import aquaHQrun
 from yuckPass import yuckPassrun
 from test import testrun
 from oni import onirun
-from servercollection import aquaHQ, yuckPass, test, oni, servercollection
+from servercollection import *
 
 
 # def ping_hosts_and_put_in_db():
@@ -54,12 +54,12 @@ async def ping(ctx):
 async def run(ctx, arg=''):
     if arg == 'aquaHQ' and aquaHQ.isLive == False:
         aquaHQ.isLive = True
-        t = threading.Thread(target=aquaHQrun)
+        t = threading.Thread(target=serverRun,args=(aquaHQ,))
         t.start()
         await ctx.send('aquaHQ online')
     elif arg == 'yuckPass' and yuckPass.isLive == False:
         yuckPass.isLive = True
-        t = threading.Thread(target=yuckPassrun)
+        t = threading.Thread(target=serverRun,args=(yuckPass,))
         t.start()
         await ctx.send('yuckPass online')
     elif arg == 'test' and test.isLive == False:
@@ -109,5 +109,11 @@ async def isonline(ctx, arg=''):
 async def status(ctx):
     for value in servercollection:
         await ctx.send(value.serverName + ': ' + str(value.isLive))
+
+# @bot.event
+# async def on_command_error(ctx, error):
+#     if isinstance(error, commands.MissingRequiredArgument):
+#         await ctx.send('Please pass in all required arguements.')
+    
 bot.run('OTU2NjYzNTgzNzE3MDkzMzc3.YjzgZA.rdHO42UDG60_M7AIb8aPTS8dAFU')
 

@@ -22,10 +22,10 @@ def serverRun(serverObj):
             counter = 0
             for value in serverObj.channelCollection:
                 json_obj = retrieve_messages(serverObj.activeToken ,value['channel'])
-                try:
-                    payload_content_0 = json_obj[0]['id']
-                except KeyError:
-                    print('KeyError 0')
+                # try:
+                payload_content_0 = json_obj[0]['id']
+                # except KeyError:
+                #     print('KeyError 0')
 
                 if payload_content_0 != recent_messages[counter]:
                     # send_message(value['directedChannel'], json_obj[0]['content'], aquaHQ.proxyToken)
@@ -114,7 +114,7 @@ test.activeToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
 test.proxyToken = 'MjAzMjM3NTAxODMyMjY1NzMw.YfBRyQ.23lIcSEjKWumZlSJ129xKBSfE9g'
 test.channelCollection = [
     {
-        'channel': '935772422517448725',
+        'channel': '951432248798887936',
         'directedChannel': '956824883319414794',
         'chatChannel': True
     }
